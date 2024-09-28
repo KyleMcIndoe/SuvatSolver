@@ -39,35 +39,35 @@ fun App() {
             TextField(
                 value = sinput,
                 onValueChange = {sinput = it},
-                label = {Text("Displacement")},
+                label = {Text("Displacement (m)")},
                 maxLines = 1
             )
 
             TextField(
                 value = uinput,
                 onValueChange = {uinput = it},
-                label = { Text("Initial velocity")},
+                label = { Text("Initial velocity (m/s)")},
                 maxLines = 1
             )
 
             TextField(
                 value = vinput,
                 onValueChange = {vinput = it},
-                label = { Text("Final velocity")},
+                label = { Text("Final velocity (m/s")},
                 maxLines = 1
             )
 
             TextField(
                 value = ainput,
                 onValueChange = {ainput = it},
-                label = { Text("Acceleration")},
+                label = { Text("Acceleration (m/s^2)")},
                 maxLines = 1
             )
 
             TextField(
                 value = tinput,
                 onValueChange = {tinput = it},
-                label = { Text("Time")},
+                label = { Text("Time (s)")},
                 maxLines = 1
             )
 
