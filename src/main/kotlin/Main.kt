@@ -10,6 +10,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
@@ -28,7 +30,9 @@ fun App() {
 
     MaterialTheme {
         Column (
-            verticalArrangement = Arrangement.spacedBy(20.dp)
+            verticalArrangement = Arrangement.spacedBy(20.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+
         ){
             TextField(
                 value = sinput,
@@ -64,6 +68,18 @@ fun App() {
                 label = { Text("Time")},
                 maxLines = 1
             )
+
+            Text(tinput)
+
+            Button(
+                onClick = {
+
+                },
+            ) {
+                Text("Calculate")
+            }
+
+
         }
     }
 }
