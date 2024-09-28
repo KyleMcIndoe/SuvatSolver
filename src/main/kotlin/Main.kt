@@ -117,7 +117,7 @@ fun App() {
 fun main() = application {
     Window(
         onCloseRequest = ::exitApplication,
-        state = rememberWindowState(width = 300.dp, height = 575.dp),
+        state = rememberWindowState(width = 300.dp, height = 510.dp),
         resizable = false,
         title = "Suvat Solver"
         ) {
