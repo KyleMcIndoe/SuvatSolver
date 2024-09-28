@@ -71,8 +71,6 @@ fun App() {
                 maxLines = 1
             )
 
-            Text(tinput)
-
             Row(
                 horizontalArrangement = Arrangement.spacedBy(15.dp)
             ) {
