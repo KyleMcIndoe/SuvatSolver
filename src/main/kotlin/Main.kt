@@ -1,6 +1,7 @@
 import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -71,19 +72,42 @@ fun App() {
 
             Text(tinput)
 
-            Button(
-                onClick = {
-                    val s: Double? = sinput.toDoubleOrNull();
-                    val u: Double? = uinput.toDoubleOrNull();
-                    val v: Double? = vinput.toDoubleOrNull();
-                    val a: Double? = ainput.toDoubleOrNull();
-                    val t: Double? = tinput.toDoubleOrNull();
+            Row(
 
-                    val f = funcs();
-                    var vals = f.findMissings(s, u, v, a, t);
-                },
             ) {
-                Text("Calculate")
+                Button(
+                    onClick = {
+                        val s: Double? = sinput.toDoubleOrNull();
+                        val u: Double? = uinput.toDoubleOrNull();
+                        val v: Double? = vinput.toDoubleOrNull();
+                        val a: Double? = ainput.toDoubleOrNull();
+                        val t: Double? = tinput.toDoubleOrNull();
+
+                        val f = funcs();
+                        var vals = f.findMissings(s, u, v, a, t);
+
+                        sinput = vals[0].toBigDecimal().toPlainString();
+                        uinput = vals[1].toBigDecimal().toPlainString();
+                        vinput = vals[2].toBigDecimal().toPlainString();
+                        ainput = vals[3].toBigDecimal().toPlainString();
+                        tinput = vals[4].toBigDecimal().toPlainString();
+
+                    },
+                ) {
+                    Text("Calculate")
+                }
+
+                Button(
+                    onClick = {
+                        sinput = "";
+                        uinput = "";
+                        vinput = "";
+                        ainput = "";
+                        tinput = "";
+                    }
+                ) {
+                    Text("Reset")
+                }
             }
 
 
