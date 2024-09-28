@@ -73,7 +73,14 @@ fun App() {
 
             Button(
                 onClick = {
+                    val s: Double? = sinput.toDoubleOrNull();
+                    val u: Double? = uinput.toDoubleOrNull();
+                    val v: Double? = vinput.toDoubleOrNull();
+                    val a: Double? = ainput.toDoubleOrNull();
+                    val t: Double? = tinput.toDoubleOrNull();
 
+                    val f = funcs();
+                    var vals = f.findMissings(s, u, v, a, t);
                 },
             ) {
                 Text("Calculate")

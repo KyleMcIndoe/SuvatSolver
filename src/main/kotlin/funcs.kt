@@ -1,6 +1,6 @@
 import kotlin.math.sqrt
 
-public abstract class funcs {
+public class funcs {
 
     fun swithoutu(v: Double, a: Double, t: Double): Double {
         return (v * t) - (0.5 * (a * (t * t)));
@@ -83,9 +83,75 @@ public abstract class funcs {
     }
 
 
-    fun findMissings(s: Double?, u: Double?, v: Double?, a: Double?, t: Double?) {
+    public fun findMissings(si: Double?, ui: Double?, vi: Double?, ai: Double?, ti: Double?): Array<Double> {
+        val suvatLetters = arrayOf("s", "u", "v", "a", "t");
+        var argsArr = arrayOf(si, ui, vi, ai, ti);
+        var unknownIndices = arrayOf(6, 6);
 
+        var letterOne = "";
+        var letterTwo = "";
 
+        val s: Double = si ?: 0.0;
+        val u: Double = ui ?: 0.0;
+        val v: Double = vi ?: 0.0;
+        val a: Double = ai ?: 0.0;
+        val t: Double = ti ?: 0.0;
 
+        var i = 0;
+        while(i < 5) {
+            if(argsArr[i] == null && letterOne == "") {
+                letterOne = suvatLetters[i];
+                unknownIndices[0] = i;
+            }
+            if(argsArr[i] == null && letterOne != "") {
+                letterTwo = suvatLetters[i];
+                unknownIndices[1] = i;
+            }
+            i++;
+        }
+
+        val funcNameOne = letterOne + "without" + letterTwo;
+        val funcNameTwo = letterTwo + "without" + letterOne;
+
+        fun callFromString(x: String): Double {
+            if(x == "swithoutu") return swithoutu(v, a, t);
+            if(x == "swithoutv") return swithoutv(u, a, t);
+            if(x == "swithouta") return swithouta(u, v, t);
+            if(x == "swithoutt") return swithoutt(u, v, a);
+            if(x == "uwithouts") return uwithouts(v, a, t);
+            if(x == "uwithoutv") return uwithoutv(s, a, t);
+            if(x == "uwithouta") return uwithouta(s, v, t);
+            if(x == "uwithoutt") return uwithoutt(s, v, a);
+            if(x == "vwithouts") return vwithouts(u, a, t);
+            if(x == "vwithoutu") return vwithoutu(s, a, t);
+            if(x == "vwithouta") return vwithouta(s, u, t);
+            if(x == "vwithoutt") return vwithoutt(s, u, a);
+            if(x == "awithouts") return awithouts(u, v, t);
+            if(x == "awithoutu") return awithoutu(s, v, t);
+            if(x == "awithoutv") return awithoutv(s, u, t);
+            if(x == "awithoutt") return awithoutt(s, u, v);
+            if(x == "twithouts") return twithouts(u, v, a);
+            if(x == "twithoutu") return twithoutu(s, v, a);
+            if(x == "twithoutv") return twithoutv(s, u, a);
+            if(x == "twithouta") return twithouta(s, u, v);
+
+            return 0.0;
+        }
+
+        var answers = arrayOf(0.0, 0.0, 0.0, 0.0, 0.0);
+
+        i = 0;
+        while(i < 5) {
+            if(i == unknownIndices[0]) {
+                answers[i] = callFromString(funcNameOne);
+            } else if(i == unknownIndices[1]) {
+                answers[i] = callFromString(funcNameTwo);
+            } else {
+                answers[i] = argsArr[i] ?: 0.0;
+            }
+            i++;
+        }
+
+        return answers;
     }
 }
