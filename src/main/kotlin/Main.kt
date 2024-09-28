@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
+import androidx.compose.ui.window.rememberWindowState
 import java.awt.Label
 
 @Composable
@@ -73,7 +74,7 @@ fun App() {
             Text(tinput)
 
             Row(
-
+                horizontalArrangement = Arrangement.spacedBy(15.dp)
             ) {
                 Button(
                     onClick = {
@@ -116,7 +117,12 @@ fun App() {
 }
 
 fun main() = application {
-    Window(onCloseRequest = ::exitApplication) {
+    Window(
+        onCloseRequest = ::exitApplication,
+        state = rememberWindowState(width = 300.dp, height = 575.dp),
+        resizable = false,
+        title = "Suvat Solver"
+        ) {
         App()
     }
 }
