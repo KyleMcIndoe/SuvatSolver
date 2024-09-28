@@ -1,6 +1,6 @@
 # Suvat Solver
 
-![alt text](https://github.com/KyleMcIndoe/SuvatSolver/tree/master/BuildScreenshot.png?raw)
+![alt text](https://github.com/KyleMcIndoe/SuvatSolver/blob/master/BuildScreenshot.png)
 
 Suvat solver is a tiny desktop app made to solve kinematics equations.
 
